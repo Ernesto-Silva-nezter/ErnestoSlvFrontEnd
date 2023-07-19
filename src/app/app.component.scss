@@ -117,3 +117,9 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 }
+
+#logout-list {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

@@ -1,0 +1,89 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{tituloAccion}} Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <ion-card>
+      <ion-list>
+        <ion-item class="ion-margin">
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input  [(ngModel)]="usuario.nombre" name="nombre" required></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-margin">
+          <ion-label position="stacked">Dirección</ion-label>
+          <ion-input  [(ngModel)]="usuario.direccion" name="direccion" required></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-margin">
+          <ion-label position="stacked">Teléfono</ion-label>
+          <ion-input  [(ngModel)]="usuario.telefono" name="telefono" inputmode="numeric" pattern="[0-9]*" required></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-margin">
+          <ion-label position="stacked">Código Postal</ion-label>
+          <ion-input  [(ngModel)]="usuario.codigoPostal" name="codigoPostal" inputmode="numeric" pattern="[0-9]*" required></ion-input>
+        </ion-item>
+
+
+        <ion-item class="ion-margin">
+          <ion-label position="stacked">Tipo de Usuario</ion-label>
+          <ion-select [(ngModel)]="usuario.tipoUsuario" name="tipoUsuario" required>
+            <ion-select-option value="Normal">Normal</ion-select-option>
+            <ion-select-option value="Administrador">Administrador</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item class="ion-margin">
+          <ion-label position="stacked">Estado</ion-label>
+          <ion-select [(ngModel)]="usuario.estado" name="estado" required (ionChange)="onEstadoChange()">
+            <ion-select-option *ngFor="let estado of listaEstados" [value]="estado.entidad_Federativa">
+              {{ estado.entidad_Federativa }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item class="ion-margin">
+          <ion-label position="stacked">Ciudad</ion-label>
+          <ion-select [(ngModel)]="usuario.ciudad" name="ciudad" required [disabled]="!usuario.estado" (ionChange)="onEstadoChange()">
+            <ion-select-option *ngFor="let municipio of listaMunicipios" [value]="municipio.municipio">
+              {{ municipio.municipio }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+
+        <ion-item class="ion-margin">
+          <ion-label position="stacked">Rol</ion-label>
+          <ion-select [(ngModel)]="usuario.rol" name="rol" required>
+            <ion-select-option value="Desarrollador">Desarrollador</ion-select-option>
+            <ion-select-option value="Recursos Humanos">Recursos Humanos</ion-select-option>
+            <ion-select-option value="QA">QA</ion-select-option>
+            <ion-select-option value="Administración">Administración</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item class="ion-margin">
+          <ion-label position="stacked">Acceso</ion-label>
+          <ion-input [(ngModel)]="usuario.acceso" name="acceso" required></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-margin">
+          <ion-label position="stacked">Contraseña</ion-label>
+          <ion-input [(ngModel)]="usuario.contrasena" name="contrasena" type="password" required></ion-input>
+        </ion-item>
+
+        <ion-button routerLink="/catalogo" class="ion-margin" color="tertiary" expand="full" (click)="submitForm(usuario)" [disabled]="!isFormValid()">{{botonAccion}}</ion-button>
+      </ion-list>
+    </ion-card>
+</div>
+
+</ion-content>
+
+

@@ -1,0 +1,42 @@
+<ion-content>
+  <div class="container">
+    <ion-card>
+      <ion-grid class="ion-padding" style="margin-top: 5vh;">
+        <ion-row>
+          <ion-col size="12" class="ion-text-center" style="display: flex; flex-direction: column; align-items: center;">
+            <!-- <h2>Iniciar sesión</h2> -->
+            <ion-img src="https://nezter.com/images/logo-nezter.png" class="custom-image"></ion-img>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item>
+              <ion-label position="floating">ID Acceso</ion-label>
+              <ion-input  type="text" [(ngModel)]="acceso" name="acceso" required></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item>
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input  type="password" [(ngModel)]="contrasena" name="contrasena" required></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="ion-text-center">
+            <ion-button expand="full" color="tertiary" (click)="onLogin()" [disabled]="!isFormValid()">Iniciar sesión</ion-button>
+            <!-- routerLink="/catalogo" -->
+          </ion-col>
+        </ion-row>
+        <!-- <ion-row>
+          <ion-col size="12" class="ion-text-center">
+            <a href="#" (click)="forgotPassword()">¿Olvidaste tu contraseña?</a>
+          </ion-col>
+        </ion-row> -->
+      </ion-grid>
+    </ion-card>
+  </div>
+</ion-content>
+

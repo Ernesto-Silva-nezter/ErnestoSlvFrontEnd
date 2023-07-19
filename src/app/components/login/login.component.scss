@@ -1,0 +1,18 @@
+/* styles.scss o archivo de estilos del componente */
+
+.custom-image {
+  width: 350px; /* Ajusta el ancho de la imagen según tus necesidades */
+  height: auto; /* Ajusta la altura automáticamente proporcionalmente al ancho */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+.custom-nezter{
+  background-color: #ff6633;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta el valor para la altura deseada */
+}
